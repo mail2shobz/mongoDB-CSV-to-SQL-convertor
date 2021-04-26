@@ -24,8 +24,7 @@ do
     # now use mongoexport with the set of keys to export the collection to csv
     mongoexport --host $host -d $dbname -c ${collectionArray[$i]} --fields "$keys" --type=csv --out ${collectionArray[$i]}.csv --forceTableScan;
     echo "Starting Conversion ......................."
-    wget https://repo1.maven.org/maven2/com/rebasedata/client/0.0.5/client-0.0.5.jar
-    java -jar client-0.0.5.jar convert --output-format=postgresql ${collectionArray[$i]}.csv output-dir/
+    curl -F files[]=@${collectionArray[$i]}.csv 'https://www.rebasedata.com/api/v1/convert?outputFormat=postgresql&errorResponse=zip' -o output.zip
 done
 
 IFS=$OIFS;
