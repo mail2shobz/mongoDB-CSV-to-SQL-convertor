@@ -1,3 +1,3 @@
 # mongoDB-CSV-to-SQL-convertor
 
-Make Sure that you have installed #OPENJDK (AnyVersion Before running the script) 
+A simple Script to conver all the collection to CSV and automatically convert it to SQL on a single run of script
